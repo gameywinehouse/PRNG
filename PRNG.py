@@ -27,9 +27,26 @@ def generate_random_numbers(count):
         time.sleep(0.01)
     return random_numbers
 
-# Number of random numbers to generate
-n = int(input("Enter the number of pseudo-random numbers to generate: "))
+# Main function to handle user interaction
+def main():
+    while True:
+        try:
+            # Number of random numbers to generate
+            n = int(input("Enter the number of pseudo-random numbers to generate: "))
+            
+            # Generate and print the random numbers
+            random_numbers = generate_random_numbers(n)
+            print("Pseudo-random numbers:", random_numbers)
+            
+            # Ask user if they want to generate more random numbers
+            choice = input("Do you want to generate more random numbers? (yes/no): ").lower()
+            if choice != 'yes':
+                break  # Exit the loop if user does not want more numbers
+        
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+    
+    print("Program exited.")
 
-# Generate and print the random numbers
-random_numbers = generate_random_numbers(n)
-print("Pseudo-random numbers:", random_numbers)
+if __name__ == "__main__":
+    main()
